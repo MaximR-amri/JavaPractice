@@ -71,6 +71,7 @@ public class Strings2 {
 
     }
 
+
     public static int countCode (String str){
         int countCode = 0;
         for(int i= 0; i<str.length()-3;i++){
