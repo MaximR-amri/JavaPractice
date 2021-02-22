@@ -1,2 +1,2 @@
-# javaPractice
+# javapractice_boilerplate
 
