@@ -2,7 +2,13 @@ package array;
 
 public class Array1 {
 
-    /*
+    public static void main(String[] args) {
+        System.out.println(maxEnd3(new int[]{11, 5, 9})[1]);
+//        System.out.println(commonEnd(new int[]{1, 2, 3}, new int[]{7,3}));
+    }
+    public static boolean firstLast6(int[] array){
+        /*
+
     firstLast6
 
     Given an array of ints, return true if 6
@@ -12,6 +18,15 @@ public class Array1 {
     firstLast6([6, 1, 2, 3]) → true
     firstLast6([13, 6, 1, 2, 3]) → false
     */
+        if(array[0] == 6 || array[array.length-1]==6){
+            return true;
+        } else
+            return false;
+    }
+
+    public static boolean sameFirstLast(int[] array) {
+        return (array.length>1 && array[0]==array[array.length-1]) ?  true : false;
+
 
     /*
     SameFirstLast
@@ -23,16 +38,21 @@ public class Array1 {
     sameFirstLast([1, 2, 3, 1]) → true
     sameFirstLast([1, 2, 1]) → true
     */
+    }
 
-    /*
+    public static int[] makePi(){
+        return new int[]{3,1,4};
+        /*
     makePi
 
     Return an int array length 3 containing the first 3 digits of pi, {3, 1, 4}.
 
     makePi() → [3, 1, 4]
      */
+    }
 
-    /*
+    public static boolean commonEnd(int[] a, int[] b){
+         /*
     commonEnd
     Given 2 arrays of ints, a and b, return true if they have the same first element or they have the same last element.
     Both arrays will be length 1 or more.
@@ -41,8 +61,11 @@ public class Array1 {
     commonEnd([1, 2, 3], [7, 3, 2]) → false
     commonEnd([1, 2, 3], [1, 3]) → true
      */
+        return a[0] == b[0] || a[a.length-1]==b[b.length-1] ? true : false;
+    }
 
-    /*
+    public static int sum3(int[] a){
+            /*
     sum3
 
     Given an array of ints length 3, return the sum of all the elements.
@@ -51,7 +74,12 @@ public class Array1 {
     sum3([5, 11, 2]) → 18
     sum3([7, 0, 0]) → 7
      */
+        return a[0] + a[1] + a[2];
+    }
 
+    public static int[] rotateLeft3(int[] a) {
+        int [] arr = {a[1], a[2], a[0]};
+        return arr;
     /*
     rotateLeft3
 
@@ -61,8 +89,10 @@ public class Array1 {
     rotateLeft3([5, 11, 9]) → [11, 9, 5]
     rotateLeft3([7, 0, 0]) → [0, 0, 7]
      */
+    }
 
-    /*
+    public static int[] reverse3(int[] a){
+            /*
     reverse3
 
     Given an array of ints length 3, return a new array with the elements in reverse order,
@@ -72,8 +102,12 @@ public class Array1 {
     reverse3([5, 11, 9]) → [9, 11, 5]
     reverse3([7, 0, 0]) → [0, 0, 7]
      */
+        int[] arr = {a[2],a[1],a[0]};
+        return arr;
+    }
 
-    /*
+    public static int[] maxEnd3(int[] a){
+            /*
     maxEnd3
 
     Given an array of ints length 3, figure out which is larger, the first or last element in the array,
@@ -83,6 +117,19 @@ public class Array1 {
     maxEnd3([11, 5, 9]) → [11, 11, 11]
     maxEnd3([2, 11, 3]) → [3, 3, 3]
      */
+        int[] arr= new int[3];
+        if(a[0]<a[2]){
+            for(int i=0;i<3;i++){
+                arr[i]=a[2];
+            }
+        } else {
+            for(int i=0;i<3;i++){
+                arr[i]=a[0];
+            }
+        }
+        return arr;
+    };
+
 
     /*
     Sum2

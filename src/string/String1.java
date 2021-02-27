@@ -1,6 +1,10 @@
 package string;
 
 public class String1 {
+    public static void main(String[] args) {
+//        String returnVal = endsLy("oddly");
+        System.out.println(withoutX2("Hxi"));
+    }
 
     public static String helloName(String name) {
         /*
@@ -10,7 +14,9 @@ public class String1 {
         helloName("Alice") → "Hello Alice!"
         helloName("X") → "Hello X!"
          */
-        return "";
+
+
+        return "Hello " + name + "!";
     }
 
 
@@ -22,7 +28,7 @@ public class String1 {
         makeAbba("Yo", "Alice") → "YoAliceAliceYo"
         makeAbba("What", "Up") → "WhatUpUpWhat"
         */
-        return "";
+        return a + b + b + a;
     }
 
     public static String makeTags(String tag, String word) {
@@ -33,7 +39,7 @@ public class String1 {
         makeTags("i", "Hello") → "<i>Hello</i>"
         makeTags("cite", "Yay") → "<cite>Yay</cite>"
          */
-        return "";
+        return "<" + tag + ">" + word + "</" + tag + ">";
     }
 
     public static String makeOutWord(String out, String word) {
@@ -46,7 +52,7 @@ public class String1 {
         makeOutWord("<<>>", "WooHoo") → "<<WooHoo>>"
         makeOutWord("[[]]", "word") → "[[word]]"
          */
-        return "";
+        return out.substring(0, 2) + word + out.substring(2, 4);
     }
 
     public static String extraEnd(String str) {
@@ -58,7 +64,7 @@ public class String1 {
         extraEnd("ab") → "ababab"
         extraEnd("Hi") → "HiHiHi"
          */
-        return "";
+        return str.substring(str.length() - 2) + str.substring(str.length() - 2) + str.substring(str.length() - 2);
     }
 
     public static String firstTwo(String str) {
@@ -69,7 +75,11 @@ public class String1 {
         firstTwo("abcdefg") → "ab"
         firstTwo("ab") → "ab"
          */
-        return "";
+        if (str.length() < 2) {
+            return str;
+        } else {
+            return str.substring(0, 2);
+        }
     }
 
     public static String firstHalf(String str) {
@@ -81,7 +91,7 @@ public class String1 {
         firstHalf("abcdef") → "abc"
          */
 
-        return "";
+        return str.substring(0, (str.length() / 2));
     }
 
     public static String withoutEnd(String str) {
@@ -93,18 +103,27 @@ public class String1 {
         withoutEnd("java") → "av"
         withoutEnd("coding") → "odin"
          */
-        return "";
+        return str.substring(1, str.length() - 1);
     }
 
     public static String comboString(String a, String b) {
         /*
         Given 2 strings, a and b, return a string of the form short+long+short, with the shorter string on the outside and the longer string on the inside. The strings will not be the same length, but they may be empty (length 0).
-
         comboString("Hello", "hi") → "hiHellohi"
         comboString("hi", "Hello") → "hiHellohi"
         comboString("aaa", "b") → "baaab"
          */
-        return "";
+        String longString, shortString;
+
+        if (a.length() < b.length()) {
+            shortString = a;
+            longString = b;
+        } else {
+            shortString = b;
+            longString = a;
+        }
+
+        return shortString + longString + shortString;
     }
 
     public static String nonStart(String a, String b) {
@@ -115,7 +134,7 @@ public class String1 {
         nonStart("java", "code") → "avaode"
         nonStart("shotl", "java") → "hotlava"
          */
-        return "";
+        return a.substring(1) + b.substring(1);
     }
 
     public static String left2(String str) {
@@ -126,7 +145,7 @@ public class String1 {
         left2("java") → "vaja"
         left2("Hi") → "Hi"
          */
-        return "";
+        return str.substring(2) + str.substring(0, 2);
     }
 
     public static String right2(String str) {
@@ -137,7 +156,7 @@ public class String1 {
         right2("java") → "vaja"
         right2("Hi") → "Hi"
          */
-        return "";
+        return str.substring(str.length() - 2) + str.substring(0, str.length() - 2);
     }
 
     public static String theEnd(String str, boolean front) {
@@ -148,7 +167,11 @@ public class String1 {
         theEnd("Hello", false) → "o"
         theEnd("oh", true) → "o"
          */
-        return "";
+        if (front) {
+            return str.substring(0, 1);
+        } else {
+            return str.substring(str.length() - 1);
+        }
     }
 
     public static String withouEnd2(String str) {
@@ -159,7 +182,7 @@ public class String1 {
         withouEnd2("abc") → "b"
         withouEnd2("ab") → ""
          */
-        return "";
+        return str.substring(1, str.length() - 1);
     }
 
     public static String middleTwo(String str) {
@@ -170,7 +193,7 @@ public class String1 {
         middleTwo("code") → "od"
         middleTwo("Practice") → "ct"
          */
-        return "";
+        return str.substring((str.length() / 2) - 1, (str.length() / 2) + 1);
     }
 
     public static boolean endsLy(String str) {
@@ -181,7 +204,11 @@ public class String1 {
         endsLy("y") → false
         endsLy("oddy") → false
          */
-        return false;
+        if (str.length() > 1) {
+            return str.endsWith("ly");
+        } else {
+            return false;
+        }
     }
 
     public static String nTwice(String str, int n) {
@@ -193,7 +220,7 @@ public class String1 {
         nTwice("Chocolate", 3) → "Choate"
         nTwice("Chocolate", 1) → "Ce"
          */
-        return "";
+        return str.substring(0, n) + str.substring(str.length() - n);
     }
 
     public static String twoChar(String str, int index) {
@@ -204,7 +231,12 @@ public class String1 {
         twoChar("java", 2) → "va"
         twoChar("java", 3) → "ja"
          */
-        return "";
+        if (index + 2 > str.length() || index + 2 < 0) {
+            return str.substring(0, 2);
+        } else {
+
+            return str.substring(index, index + 2);
+        }
     }
 
     public static String middleThree(String str) {
@@ -215,7 +247,8 @@ public class String1 {
         middleThree("and") → "and"
         middleThree("solving") → "lvi"
          */
-        return "";
+        int middelIdx = (str.length() - 1) / 2;
+        return str.substring(middelIdx - 1, middelIdx + 2);
     }
 
     public static boolean hasBad(String str) {
@@ -226,7 +259,7 @@ public class String1 {
         hasBad("xbadxx") → true
         hasBad("xxbadxx") → false
          */
-        return false;
+        return str.startsWith("bad") || str.startsWith("bad", 1);
     }
 
     public static String atFirst(String str) {
@@ -237,7 +270,14 @@ public class String1 {
         atFirst("hi") → "hi"
         atFirst("h") → "h@"
          */
-        return "";
+        if (str.length() >= 2) {
+            return str.substring(0, 2);
+        } else {
+            while (str.length() < 2) {
+                str += "@";
+            }
+            return str;
+        }
     }
 
     public static String lastChars(String a, String b) {
@@ -248,7 +288,19 @@ public class String1 {
         lastChars("yo", "java") → "ya"
         lastChars("hi", "") → "h@"
          */
-        return "";
+        String firstChar;
+        String lastChar;
+        if(a.length()==0){
+            firstChar= "@";
+            lastChar=b.substring(b.length()-1);
+        } else if(b.length()==0){
+            firstChar= a.substring(0,1);
+            lastChar= "@";;
+        } else {
+            firstChar= a.substring(0,1);
+            lastChar=b.substring(b.length()-1);
+        }
+        return firstChar+lastChar;
     }
 
     public static String conCat(String a, String b) {
@@ -260,7 +312,9 @@ public class String1 {
         conCat("dog", "cat") → "dogcat"
         conCat("abc", "") → "abc"
          */
-        return "";
+        if(a.substring(a.length()-1).equals(b.substring(0,1))){
+            return a.substring(0, a.length()-1)+ b;
+        } else return a+b;
     }
 
     public static String lastTwo(String str) {
@@ -272,7 +326,10 @@ public class String1 {
         lastTwo("cat") → "cta"
         lastTwo("ab") → "ba"
          */
-        return "";
+        String finalChar= str.substring(str.length()-1);
+        String preFinalChar=str.substring(str.length()-2,str.length()-1);
+
+        return str.substring(0, str.length()-2)+finalChar+preFinalChar;
     }
 
     public static String seeColor(String str) {
@@ -284,7 +341,9 @@ public class String1 {
         seeColor("xxred") → ""
         seeColor("blueTimes") → "blue"
          */
-        return "";
+        if(str.substring(0,3).equals("red")) return "red";
+        else if(str.substring(0,4).equals("blue")) return "blue";
+        else return "";
     }
 
     public static boolean frontAgain(String str) {
@@ -295,7 +354,7 @@ public class String1 {
         frontAgain("edit") → false
         frontAgain("ed") → true
          */
-        return true;
+        return (str.substring(0,2).equals(str.substring(str.length()-2)));
     }
 
     public static String minCat(String a, String b) {
@@ -306,7 +365,13 @@ public class String1 {
         minCat("Hello", "java") → "ellojava"
         minCat("java", "Hello") → "javaello"
          */
-        return "";
+        int x= Math.abs(b.length()-a.length());
+        if(a.length()<b.length()){
+            return a+b.substring(x);
+        } else if(a.length()>b.length()) {
+            return a.substring(x)+b;
+        }
+        else return a+b;
     }
 
     public static String extraFront(String str) {
@@ -317,7 +382,15 @@ public class String1 {
         extraFront("ab") → "ababab"
         extraFront("H") → "HHH"
          */
-        return "";
+        String result = "";
+        for(int i= 0; i<3; i++) {
+            if(str.length()<2){
+                result += str;
+            } else
+                result += str.substring(0,2);
+        }
+
+        return result;
     }
 
     public static String without2(String str) {
@@ -328,7 +401,11 @@ public class String1 {
         without2("HelloHi") → "HelloHi"
         without2("Hi") → ""
          */
-        return "";
+        if(str.length()==2 && str.substring(0,2).equals(str.substring(str.length()-2))) {
+            return "";
+        } else if(str.substring(0,2).equals(str.substring(str.length()-2))){
+            return str.substring(2);
+        } else return str;
     }
 
     public static String deFront(String str) {
@@ -339,18 +416,29 @@ public class String1 {
         deFront("java") → "va"
         deFront("away") → "aay"
          */
-        return "";
+        if(str.charAt(0) == 'a' && str.charAt(1) != 'b'){
+            return str.charAt(0)+str.substring(2);
+        } else if(str.charAt(0) != 'a' && str.charAt(1) == 'b'){
+            return str.substring(1);
+        } else return str.substring(2);
+
     }
 
     public static String startWord(String str, String word) {
         /*
-        Given a string and a second "word" string, we'll say that the word matches the string if it appears at the front of the string, except its first char does not need to match exactly. On a match, return the front of the string, or otherwise return the empty string. So, so with the string "hippo" the word "hi" returns "hi" and "xip" returns "hip". The word will be at least length 1.
+        Given a string and a second "word" string, we'll say that the word matches the string if it appears at the front of the string, except its first char does not need to match exactly.
+        On a match, return the front of the string, or otherwise return the empty string.
+        So, so with the string "hippo" the word "hi" returns "hi" and "xip" returns "hip". The word will be at least length 1.
 
         startWord("hippo", "hi") → "hi"
         startWord("hippo", "xip") → "hip"
         startWord("hippo", "i") → "h"
          */
-        return "";
+        if(str.substring(0,word.length()).equals(word)){
+            return word;
+        } else if(str.substring(1,word.length()).equals(word.substring(1))){
+            return str.substring(0,word.length());
+        } else return "";
     }
 
     public static String withoutX(String str) {
@@ -361,7 +449,13 @@ public class String1 {
         withoutX("xHi") → "Hi"
         withoutX("Hxix") → "Hxi"
          */
-        return "";
+        if(str.startsWith("x") && str.endsWith("x")) {
+            return str.substring(1,str.length()-1);
+        } else if(str.startsWith("x")){
+            return str.substring(1);
+        } else if(str.endsWith("x")){
+            return str.substring(0,str.length()-1);
+        } else return str;
     }
 
     public static String withoutX2(String str) {
@@ -372,6 +466,12 @@ public class String1 {
         withoutX2("Hxi") → "Hi"
         withoutX2("Hi") → "Hi"
          */
-        return "";
+        if(str.startsWith("x") && str.charAt(1) == 'x') {
+            return str.substring(2);
+        } else if(str.charAt(1) == 'x'){
+            return str.charAt(0)+str.substring(2);
+        } else if(str.startsWith("x")){
+            return str.substring(1);
+        } else return str;
     }
 }
