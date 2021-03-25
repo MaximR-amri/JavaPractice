@@ -1,4 +1,4 @@
-package hoofdstuk11.exercise2;
+package hoofdstuk11.b;
 
 public class Tile {
     char letter;

@@ -1,4 +1,4 @@
-package hoofdstuk11.exercise4;
+package hoofdstuk11.d;
 
 public class Rational {
     int denom;
@@ -36,17 +36,5 @@ public class Rational {
         return this.numer + "/" + this.denom;
     }
 
-    public static void main(String[] args) {
-        Rational rational = new Rational();
-        rational.numer = 3;
-        rational.denom = 7;
-        Rational rat = new Rational(1,6);
-        rat.printRational();
-        System.out.println(rat);
-        rat.negate();
-        System.out.println(rat);
-        rat.invert();
-        System.out.println(rat);
-        System.out.println(rat.toDouble());
-    }
+
 }

@@ -1,4 +1,4 @@
-package hoofdstuk11.exercise3;
+package hoofdstuk11.c;
 
 public class Date {
     int year;
@@ -22,8 +22,5 @@ public class Date {
         return year + " " + month + " " + day;
     }
 
-    public static void main(String[] args) {
-        Date birthday = new Date(1994, 2, 23);
-        System.out.println(birthday);
-    }
+
 }
